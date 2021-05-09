@@ -1,0 +1,14 @@
+note:-
+To save the product history, open your theme.liquid file and paste this code towards the end of the file (before closing body).
+
+
+{% if template contains 'product' %}
+
+{{ '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' | script_tag }}
+{{ 'jquery.products.min.js' | asset_url | script_tag }}
+
+<script>
+Shopify.Products.recordRecentlyViewed();
+</script>
+
+{% endif %}
